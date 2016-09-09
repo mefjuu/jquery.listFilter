@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery ListFilter demo</title>
+	
+	<style>
+		.listfilter-item--hidden { display: none; }
+	</style>
+</head>
+<body>
+
+	<h1>jQuery ListFilter</h1>
+
+	<h2>Example #1: default index (<code>data-listfilter-index</code>)</h2>
+
+	<p>Plase note, that the index value in data attribute should be lowecased</p>
+
+	<p data-enable-listfilter="true" data-listfilter-list="#some-list-1" data-listfilter-by-attribute="true">
+		<input type="search" placeholder="Type a phrase">
+	</p>
+
+	<ul id="some-list-1">
+		<li data-listfilter-index="england">England</li>
+		<li data-listfilter-index="deutschland">Deutschland</li>
+		<li data-listfilter-index="poland">Poland</li>
+	</ul>
+	
+	<hr>
+
+
+
+	<h2>Example #2: defined index (<code>data-listfilter-index="data-country-name"</code>)</h2>
+
+	<p data-enable-listfilter="true" data-listfilter-list="#some-list-2" data-listfilter-by-attribute="data-country-name">
+		<input type="search" placeholder="Type a phrase">
+	</p>
+
+	<ul id="some-list-2">
+		<li data-country-name="england">England</li>
+		<li data-country-name="deutschland">Deutschland</li>
+		<li data-country-name="poland">Poland</li>
+	</ul>
+
+	<hr>	
+
+
+
+	<h2>Example #3: index from element content (<code>data-listfilter-by-element="span:contains({{value}})"</code> - slower than the examples above)</h2>
+
+	<p data-enable-listfilter="true" data-listfilter-list="#some-list-3" data-listfilter-by-element="span:contains({{value}})">
+		<input type="search" placeholder="Type a phrase">
+	</p>
+
+	<ul id="some-list-3">
+		<li><span>England</span></li>
+		<li><span>Deutschland</span></li>
+		<li><span>Poland</span></li>
+	</ul>
+
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="./jquery.listfilter.js"></script>
+	<script>
+		$('p[data-enable-listfilter]').listFilter({
+			// eventType: 'change'
+		});
+	</script>
+
+</body>
+</html>
